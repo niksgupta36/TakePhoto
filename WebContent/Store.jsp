@@ -16,7 +16,9 @@
 			style="width: 200px; height: 30px;" /> 
 		<input type="button"
 			value="Send" onclick="send()" style="width: 200px; height: 30px;" />
+		
 	</div>
+	<div id="demo"></div>
 	<script type="text/javascript">
 		var video = document.getElementById('videoID');
 		var canvas = document.getElementById('canvasID');
@@ -44,7 +46,12 @@
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open("POST", "/TakePhoto/ImageServlet", true);
 			xmlhttp.send(imageData);
-			window.location.replace("thankyou.jsp");
+			xmlhttp.onreadystatechange=function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("demo").innerHTML=xmlhttp.responseText;
+				}
+			}
+			//window.location.replace("thankyou.jsp");
 		};
 	</script>
 

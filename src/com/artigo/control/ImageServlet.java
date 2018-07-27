@@ -2,6 +2,7 @@ package com.artigo.control;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.Random;
 
@@ -43,6 +44,10 @@ public class ImageServlet extends HttpServlet {
 			
 			int orderid = guest.getorder(faceid);
 			
+			response.setContentType("text/plain");
+	        PrintWriter out = response.getWriter();
+	        out.println("Your photo has been taken successfully\n");
+	        out.println("Your orderId is : " + orderid);
 			
 			if(orderid!=0) System.out.println("Your order is : "+orderid);
 			else System.out.println("Please try again!");

@@ -29,7 +29,16 @@ public class StorePhoto extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//getOrder order1 = new getOrder();
+		//int order = order1.getid();
+//		response.setContentType("text/plain");
+//        PrintWriter out = response.getWriter();
+//        out.println("Your photo has been taken successfully");
+//        //out.println("Your orderId is : " + );
+		
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -56,7 +65,14 @@ public class StorePhoto extends HttpServlet {
 			guest.insertorder(order, faceid);
 			System.out.println("Your orderid is: " + order);
 			
-			response.getWriter().write(order+",");
+			response.setContentType("text/plain");
+	        PrintWriter out = response.getWriter();
+	        out.println("Your photo has been taken successfully\n");
+	        out.println("Your orderId is : " + order);
+	        
+			
+	        
+			//response.getWriter().write(order+",");
 			output.flush();
 			output.close();
 			

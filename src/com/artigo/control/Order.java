@@ -26,7 +26,7 @@ public class Order extends HttpServlet {
 		//int order = order1.getid();
 		response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
-        out.println("");
+        out.println("hi");
 		
 	}
 

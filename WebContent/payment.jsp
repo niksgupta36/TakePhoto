@@ -11,7 +11,7 @@
 $(document).ready(function(){
     $("button").click(function(){
         $.get("Order", function(data, status){
-            alert("Your OrderId is: " + data + "\nStatus: " + status);
+        	$('#data').replaceWith(data);
         });
     });
 });
@@ -20,9 +20,9 @@ $(document).ready(function(){
 <body>
 
 	<h2>Photo taken successfully!!</h2>
-	<p>Your OrderId is <button > View Order</button></p>
+	<p>Your OrderId is <button id="data"> View Order</button></p>
 	
-	<div id="data"> 
+	<div > 
 	</div>
 	<p>Please collect your order in 30 minutes</p>
 	<h1>Please proceed for payment</h1>
