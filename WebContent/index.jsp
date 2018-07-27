@@ -19,6 +19,7 @@
 			
 	</div>
 	<div id="demo"></div>
+	<div id="payment1" style=display:none;"> Please proceed to <a href="payment.jsp">payment </a></div>
 	<script type="text/javascript">
 		var video = document.getElementById('videoID');
 		var canvas = document.getElementById('canvasID');
@@ -43,12 +44,15 @@
 		
 		function send() {
 			var imageData = canvas.toDataURL();
+			var x = document.getElementById("payment1");
+			
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open("POST", "StorePhoto", true);
 			xmlhttp.send(imageData);
 			xmlhttp.onreadystatechange=function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 					document.getElementById("demo").innerHTML=xmlhttp.responseText;
+					x.style.display="block";
 				}
 			}
 			//window.location.replace("payment.jsp");

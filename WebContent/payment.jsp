@@ -7,24 +7,11 @@
 <title>Payment</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $.get("Order", function(data, status){
-        	$('#data').replaceWith(data);
-        });
-    });
-});
-</script>
+
 </head>
 <body>
 
-	<h2>Photo taken successfully!!</h2>
-	<p>Your OrderId is <button id="data"> View Order</button></p>
+	<h1>Payment Gateway</h1>
 	
-	<div > 
-	</div>
-	<p>Please collect your order in 30 minutes</p>
-	<h1>Please proceed for payment</h1>
 </body>
 </html>

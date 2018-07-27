@@ -67,7 +67,7 @@ public class StorePhoto extends HttpServlet {
 			
 			response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
-	        out.println("Your photo has been taken successfully\n");
+	        out.println("Your photo has been taken successfully.\n"+"Your order will be ready in 30 minutes."+"\n");
 	        out.println("Your orderId is : " + order);
 	        
 			
