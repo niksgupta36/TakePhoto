@@ -58,7 +58,7 @@ public String getFaceId(File file) {
         HttpResponse response = httpclient.execute(request);
         HttpEntity entity = response.getEntity();
         System.out.println(response.getStatusLine());
-
+        
         if (entity != null)
         {
             // Format and display the JSON response.
@@ -69,7 +69,7 @@ public String getFaceId(File file) {
                 JSONArray jsonArray = new JSONArray(jsonString);
               //  System.out.println(jsonArray.toString(2));
                 JSONObject obj=(JSONObject) jsonArray.get(0);
-                System.out.println(obj);
+          //      System.out.println(obj);
                 return (String) obj.get("faceId");
             }
             else if (jsonString.charAt(0) == '{') {

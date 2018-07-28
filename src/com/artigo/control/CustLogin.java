@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/CustLogin")
 public class CustLogin extends HttpServlet { 
@@ -23,9 +24,17 @@ public class CustLogin extends HttpServlet {
 		String submittype = request.getParameter("submit");
 		CustomerDAOImpl cust = new CustomerDAOImpl();
 		
+		
+		
+		
 		String pwd = cust.logincheck(adminusername);
+		
+		HttpSession session = request.getSession();
+		
 		if(adminpassword.equals(pwd)){
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			session.setAttribute("custname", adminusername);
+			response.sendRedirect("CustomerOrder.jsp");
+		//	request.getRequestDispatcher("CustomerOrder.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("wronguser.html").forward(request, response);
 		}

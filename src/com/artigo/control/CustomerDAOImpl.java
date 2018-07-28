@@ -46,6 +46,32 @@ public class CustomerDAOImpl {
 		return null;
 	}
 	
-	
+	public String getName(String faceid) {
+		String custname="";
+		conn = ConnectionProvider.getCon();
+
+		try {
+			ps = conn.prepareStatement("select * from Customer");
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				FaceVerify verify = new FaceVerify();
+
+				if (verify.getVerify(rs.getString(4), faceid) ) {
+					
+						return rs.getString(1);
+					
+				}
+					
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return custname;
+
+	}
 	
 }
