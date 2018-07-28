@@ -69,6 +69,7 @@ public String getFaceId(File file) {
                 JSONArray jsonArray = new JSONArray(jsonString);
               //  System.out.println(jsonArray.toString(2));
                 JSONObject obj=(JSONObject) jsonArray.get(0);
+                System.out.println(obj);
                 return (String) obj.get("faceId");
             }
             else if (jsonString.charAt(0) == '{') {

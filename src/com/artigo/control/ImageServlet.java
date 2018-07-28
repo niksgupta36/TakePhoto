@@ -41,8 +41,11 @@ public class ImageServlet extends HttpServlet {
 			String faceid = detect.getFaceId(file);
 			
 			GuestDAOImpl guest = new GuestDAOImpl();
-			
 			int orderid = guest.getorder(faceid);
+			System.out.println(orderid);
+			guest.changestatus(orderid);
+			
+			
 			
 			response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
