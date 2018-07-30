@@ -39,7 +39,8 @@ public class ImageServlet extends HttpServlet {
 			FaceDetect detect = new FaceDetect();
 			
 			String faceid = detect.getFaceId(file);
-			
+			CustomerDAOImpl cust = new CustomerDAOImpl();
+			String custname = cust.getName(faceid);
 			GuestDAOImpl guest = new GuestDAOImpl();
 			int orderid = guest.getorder(faceid);
 			System.out.println(orderid);
@@ -50,14 +51,16 @@ public class ImageServlet extends HttpServlet {
 			
 			
 			
-			
 			response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
+	        if(custname!="") out.println("Welcome "+custname +"!\n");
+	        if(custname.equals("")) out.println("Welcome Guest!");
 	        out.println("Your photo has been taken successfully\n");
-	        out.println("Your orderId is : " + orderid);
+	        if(orderid!=0)     out.println("Your orderId is : " + orderid);
+	        if(orderid==0) 	   out.println("\nWe did not find any order. \n Please try again!");
 			
 			if(orderid!=0) System.out.println("Your order is : "+orderid);
-			else System.out.println("Please try again!");
+			else System.out.println("\nWe did not find any order. \n Please try again!");
 			
 			output.flush();
 			output.close();

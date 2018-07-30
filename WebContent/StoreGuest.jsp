@@ -8,14 +8,14 @@
 	<div>
 		<video id="videoID" autoplay style="border: 1px solid black;"></video>
 	</div>
-	<div>
+ <div>
 		<canvas id="canvasID" style="border: 1px solid black;"></canvas>
-	</div>
+	</div> 
 	<div>
-		<input type="button" value="Take photo" onclick="capture()"
-			style="width: 200px; height: 30px;" /> 
+	 <input type="button" value="Take photo" onclick="capture()"
+			style="width: 200px; height: 30px;" />
 		<input type="button"
-			value="Send" onclick="send()" style="width: 200px; height: 30px;" />
+			value="Send" onclick=" send()" style="width: 200px; height: 30px;" />
 		
 	</div>
 	<div id="demo"></div>
