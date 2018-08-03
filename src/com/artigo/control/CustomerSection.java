@@ -68,7 +68,7 @@ public class CustomerSection extends HttpServlet {
 	                + "trying to upload a file to a protected or nonexistent "
 	                + "location.");
 	        writer.println("<br/> ERROR: " + fne.getMessage());
-
+	        
 	    } finally {
 	        if (out != null) {
 	            out.close();

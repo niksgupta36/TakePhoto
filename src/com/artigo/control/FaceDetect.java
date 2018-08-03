@@ -43,18 +43,18 @@ public String getFaceId(File file) {
 
         // Request headers. Replace the example key below with your valid subscription key.
         request.setHeader("Content-Type", "application/octet-stream");
-        request.setHeader("Ocp-Apim-Subscription-Key", "1db5495c0dfe45c790e8dc111b7d70d0");
+        request.setHeader("Ocp-Apim-Subscription-Key", "41ba76664c874969b77aa9d5963ddddb");
 
 
 
         // Request body
-
+        
 
        // File file = new File("/Users/nikhil.gupta/Desktop/wishes-monitor.jpg");
 
         FileEntity reqEntity = new FileEntity(file, ContentType.APPLICATION_OCTET_STREAM);
         request.setEntity(reqEntity);
-
+        
         HttpResponse response = httpclient.execute(request);
         HttpEntity entity = response.getEntity();
         System.out.println(response.getStatusLine());

@@ -47,10 +47,6 @@ public class ImageServlet extends HttpServlet {
 			guest.changestatus(orderid);
 			
 			
-			
-			
-			
-			
 			response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
 	        if(custname!="") out.println("Welcome "+custname +"!\n");

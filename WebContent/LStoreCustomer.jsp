@@ -16,7 +16,6 @@
 			style="width: 200px; height: 30px;" /> 
 		<input type="button"
 			value="Send" onclick="send()" style="width: 200px; height: 30px;" />
-		
 	</div>
 	<div id="demo"></div>
 	<script type="text/javascript">
@@ -40,11 +39,11 @@
 		function capture() {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		};
-		
+
 		function send() {
 			var imageData = canvas.toDataURL();
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("POST", "/TakePhoto/StoreCustomer", true);
+			xmlhttp.open("POST", "/TakePhoto/LStoreCustomer", true);
 			xmlhttp.send(imageData);
 			xmlhttp.onreadystatechange=function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

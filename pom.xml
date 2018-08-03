@@ -15,7 +15,16 @@
     <artifactId>json</artifactId>
     <version>20090211</version>
 </dependency>
-
+<dependency>
+    <groupId>com.cedarsoftware</groupId>
+    <artifactId>java-util</artifactId>
+    <version>1.8.0</version>
+</dependency>
+<dependency>
+    <groupId>com.backendless</groupId>
+    <artifactId>backendless</artifactId>
+    <version>3.0.8.1</version>
+</dependency>
 <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
