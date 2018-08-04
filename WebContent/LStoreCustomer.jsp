@@ -14,9 +14,10 @@
 	<div>
 		<input type="button" value="Take photo" onclick="capture()"
 			style="width: 200px; height: 30px;" /> 
-		<input type="button"
-			value="Send" onclick="send()" style="width: 200px; height: 30px;" />
+		<input  type="button"
+			value="Send" onclick=" send();" style="width: 200px; height: 30px;" />
 	</div>
+	
 	<div id="demo"></div>
 	<script type="text/javascript">
 		var video = document.getElementById('videoID');
@@ -39,8 +40,9 @@
 		function capture() {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		};
-
+	
 		function send() {
+			document.getElementById("demo").innerHTML="Loading..";
 			var imageData = canvas.toDataURL();
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open("POST", "/TakePhoto/LStoreCustomer", true);
@@ -50,6 +52,7 @@
 					document.getElementById("demo").innerHTML=xmlhttp.responseText;
 				}
 			}
+	//	load();
 			//window.location.replace("thankyou.jsp");
 		};
 	</script>
