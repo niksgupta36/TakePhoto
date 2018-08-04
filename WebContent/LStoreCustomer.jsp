@@ -3,22 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome Customer!</title>
+<link rel="stylesheet" href="styles1.css">
+
 </head>
 <body>
 	<div>
-		<video id="videoID" autoplay style="border: 1px solid black;"></video>
+		<video id="videoID" autoplay style="border: 7px solid black; border-radius: 100px;"></video>
 	</div>
 	<div>
-		<canvas id="canvasID" style="border: 1px solid black;"></canvas>
-	</div>
-	<div>
-		<input type="button" value="Take photo" onclick="capture()"
-			style="width: 200px; height: 30px;" /> 
-		<input  type="button"
-			value="Send" onclick=" send();" style="width: 200px; height: 30px;" />
+		<canvas id="canvasID"  style="border: 7px solid black; border-radius: 100px;  "></canvas>
 	</div>
 	
-	<div id="demo"></div>
+	<div >
+		<input class="button" type="button" value="Take photo" onclick="capture()"
+			style="width: 200px; height: 40px; " /> 
+		<input  class="button" type="button"
+			value="Confirm" onclick=" send();" style="width: 200px; height: 40px; " />
+	</div><br>
+	
+	<div id="demo"></div><br>
+	
+	<div>
+	<button onclick="location.href = 'http://localhost:8080/TakePhoto/Store.jsp';"  style=" width:100px; height:30px; ">
+	HOME PAGE
+	</button>
+	</div>
 	<script type="text/javascript">
 		var video = document.getElementById('videoID');
 		var canvas = document.getElementById('canvasID');
@@ -38,11 +47,15 @@
 		});
 
 		function capture() {
+			
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
+			
+			
 		};
 	
 		function send() {
 			document.getElementById("demo").innerHTML="Loading..";
+			document.getElementById("videoID").style.f
 			var imageData = canvas.toDataURL();
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open("POST", "/TakePhoto/LStoreCustomer", true);
