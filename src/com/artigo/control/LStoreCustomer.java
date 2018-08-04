@@ -77,20 +77,21 @@ public class LStoreCustomer extends HttpServlet {
 //			order.changestatus(getorder1);
 			ArrayList<String> list1 = new ArrayList();
 			list1 = getorder.getDetails(list2);
-			System.out.println(list1);
+			//System.out.println(list1);
 			response.setContentType("text/plain");
 	        PrintWriter out = response.getWriter();
 	    //    out.println("Welcome "+custname);
-	        out.println("Your photo has been taken successfully\n");
-	        
+	        out.println("<p>Thank You for your photo!</p>");
+	        System.lineSeparator();
 	        for(int i=0;i<list2.size();i++) {
 	        	//System.out.println(i);
-	        	out.println("Your orderId is : "+ list2.get(i) );
-	        	for(int j=0;j<list1.size();j++)
-	        	out.println(" ( "+ list1.get(j) + ")" );
+	        	out.println("<p>Your orderId is : "+ list2.get(i) +" ( "+ list1.get(i) + ")</p>" );
+	        	
+	        	
+	        	
 	        }
 	        if(list1==null) {
-	        	out.println("But No Order found! Please click on 'Take Photo' and try again" );
+	        	out.println("<p>But No Order found! Please click on 'Take Photo' and try again</p>" );
 	        }
 	        
 			getorder.changeStatus(list2);
